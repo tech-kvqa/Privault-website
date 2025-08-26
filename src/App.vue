@@ -26,6 +26,7 @@ export default {
         <router-view />
       </transition>
     </v-main>
+    <BookDemoButton />
     <Footer />
   </v-app>
 </template>
@@ -33,9 +34,10 @@ export default {
 <script>
 import NavBar from './components/NavBar.vue'
 import Footer from './components/Footer.vue'
+import BookDemoButton from './components/BookDemoButton.vue'
 
 export default {
-  components: { NavBar, Footer },
+  components: { NavBar, Footer, BookDemoButton },
 }
 </script>
 
@@ -46,4 +48,5 @@ export default {
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
+
 </style>

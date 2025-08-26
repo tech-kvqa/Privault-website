@@ -231,7 +231,7 @@ export default {
       </v-row>
 
       <!-- Image centered -->
-      <v-row justify="center" class="mt-6">
+      <!-- <v-row justify="center" class="mt-6">
         <v-col cols="12" md="8">
           <v-img
             src="https://via.placeholder.com/700x400"
@@ -240,7 +240,21 @@ export default {
             max-width="100%"
           ></v-img>
         </v-col>
-      </v-row>
+      </v-row> -->
+      <v-container class="mt-8 screenshots-section text-center" data-aos="fade-up">
+        <h2 class="text-h5 font-weight-bold mb-6">Product Screenshots</h2>
+        <div class="screenshot-gallery">
+          <div class="screenshot-item img1">
+            <img :src="image1" alt="Image 1" />
+          </div>
+          <div class="screenshot-item img2">
+            <img :src="image2" alt="Image 2" />
+          </div>
+          <div class="screenshot-item img3">
+            <img :src="image3" alt="Image 3" />
+          </div>
+        </div>
+      </v-container>
     </v-container>
 
     <!-- Features Section -->
@@ -267,10 +281,16 @@ export default {
 </template>
 
 <script>
+import image1 from "@/assets/edited/Breach Management/Breach Incident Dashboard.png";
+import image2 from "@/assets/edited/Breach Management/Breach Incident Report.png";
+import image3 from "@/assets/edited/Breach Management/Data Breach Reporting Form.png";
 export default {
   name: "BreachManagement",
   data() {
     return {
+      image1,
+      image2,
+      image3,
       features: [
         {
           icon: 'mdi-form-select',
@@ -360,4 +380,52 @@ export default {
 .individual-feature-card:hover .v-icon {
   color: #1f3557 !important;
 }
+
+.screenshot-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-rows: auto auto;  /* 2 rows */
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.screenshot-item {
+  position: relative;
+}
+
+.screenshot-item img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  animation: float 4s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid placement */
+.img1 { grid-column: 1; grid-row: 1; --angle: -5deg; }
+.img2 { grid-column: 1; grid-row: 2; --angle: 5deg; }
+.img3 { grid-column: 2; grid-row: 1 / span 2; --angle: -2deg; }
+
+/* Hover effect */
+.screenshot-item img:hover {
+  width: 600px;
+  height: auto;
+  transform: rotate(var(--angle));
+  z-index: 20;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(var(--angle)); }
+  50% { transform: translateY(-10px) rotate(var(--angle)); }
+  100% { transform: translateY(0px) rotate(var(--angle)); }
+}
+
 </style>

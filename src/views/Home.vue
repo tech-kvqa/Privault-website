@@ -283,10 +283,12 @@ export default {
 <template>
   <v-container fluid class="pa-0">
     <!-- Hero Section -->
-    <section class="hero-section d-flex align-center justify-center text-center">
-      <div>
-        <h1 class="text-h2 font-weight-bold mb-4" data-aos="fade-up">Cybersecurity Redefined</h1>
-        <p class="text-subtitle-1 mb-6" data-aos="fade-in" data-aos-delay="200">
+    <!-- <section class="hero-section d-flex align-center justify-center text-center">
+      <div> -->
+        <!-- <h1 class="text-h2 font-weight-bold mb-4" data-aos="fade-up">Cybersecurity Redefined</h1> -->
+        <!-- <h1 class="hero-title mb-4" data-aos="fade-up">Cybersecurity Redefined</h1> -->
+        <!-- <p class="text-subtitle-1 mb-6" data-aos="fade-in" data-aos-delay="200"> -->
+        <!-- <p class="hero-subtitle mb-6" data-aos="fade-in" data-aos-delay="200">
           Your digital shield against modern threats.
         </p>
         <v-btn
@@ -300,6 +302,25 @@ export default {
           Explore Now
         </v-btn>
       </div>
+    </section> -->
+
+    <section class="hero-section d-flex align-center justify-center text-center">
+      <div class="hero-content">
+        <h1 class="hero-title mb-3">Cybersecurity Redefined</h1>
+        <p class="hero-subtitle mb-6">
+          Your digital shield against modern threats.
+        </p>
+        <v-btn color="#C5C6C7" large rounded="xl" @click="scrollToProducts">
+          Explore Now
+        </v-btn>
+      </div>
+
+      <!-- Floating images -->
+      <div class="hero-images">
+        <img :src="image1" class="float-img img1" />
+        <img :src="image2" class="float-img img2" />
+        <img :src="image3" class="float-img img3" />
+      </div>
     </section>
 
     <!-- Product Overview Section -->
@@ -309,7 +330,8 @@ export default {
       class="product-section py-8 scroll-target"
     >
       <v-container>
-        <h2 class="text-h4 text-center mb-8 font-weight-bold" data-aos="fade-up">
+        <!-- <h2 class="text-h4 text-center mb-8 font-weight-bold" data-aos="fade-up"> -->
+        <h2 class="section-title text-center mb-8" data-aos="fade-up">
           Our Compliance Solutions
         </h2>
         <v-row dense>
@@ -324,8 +346,10 @@ export default {
           >
             <v-card class="pa-4 text-center" color="#1f3557" dark>
               <v-icon size="40" class="mb-3">{{ product.icon }}</v-icon>
-              <h3 class="text-h6 mb-2">{{ product.title }}</h3>
-              <p class="text-body-2 mb-3">{{ product.description }}</p>
+              <!-- <h3 class="text-h6 mb-2">{{ product.title }}</h3> -->
+              <h3 class="card-title mb-2">{{ product.title }}</h3>
+              <!-- <p class="text-body-2 mb-3">{{ product.description }}</p> -->
+              <p class="text-description mb-3">{{ product.description }}</p>
               <v-btn color="primary" :to="product.route" variant="outlined">
                 Learn More
               </v-btn>
@@ -338,10 +362,16 @@ export default {
 </template>
 
 <script>
+import image1 from "@/assets/edited/dashboard.png";
+import image2 from "@/assets/edited/width_550.png";
+import image3 from "@/assets/edited/width_550.png";
 export default {
   data() {
     return {
       showProducts: false,
+      image1,
+      image2,
+      image3,
       products: [
         {
           title: "Compliance Metrics",
@@ -403,18 +433,133 @@ export default {
 </script>
 
 <style scoped>
-.hero-section {
+/* .hero-section {
   min-height: 100vh;
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   color: white;
   padding: 0 20px;
+} */
+
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
+/* .product-section {
+  background-color: #f5f5f5;
+}
+
+.scroll-target {
+  scroll-margin-top: 80px;
+} */
+.hero-content {
+  max-width: 500px;
+  z-index: 2;
+}
+
+.hero-images {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+/* 🔹 Fonts */
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #5DADE2
+}
+
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #F4D03F
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.card-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Layout */
 .product-section {
   background-color: #f5f5f5;
 }
 
 .scroll-target {
   scroll-margin-top: 80px;
+}
+
+/* .float-img {
+  position: absolute;
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  animation: float 6s ease-in-out infinite;
+} */
+
+.float-img {
+  position: absolute;
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  --angle: 0deg; /* default rotation */
+}
+
+.img1 { top: 20px; left: 40px; transform: rotate(-5deg); }
+.img2 { bottom: 40px; right: 20px; transform: rotate(8deg); }
+.img3 { top: 100px; right: 120px; transform: rotate(-3deg); }
+
+/* .img1 { top: 20px; left: 40px; --angle: -5deg; }
+.img2 { bottom: 40px; right: 20px; --angle: 8deg; }
+.img3 { top: 100px; right: 120px; --angle: -3deg; } */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--angle, 0deg)); }
+  50% { transform: translateY(-12px) rotate(var(--angle, 0deg)); }
+}
+
+/* @keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--angle)); }
+  50% { transform: translateY(-12px) rotate(var(--angle)); }
+} */
+
+/* .float-img:hover {
+  transform: scale(2);
+  z-index: 10;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+} */
+
+.float-img:hover {
+  width: 600px;
+  height: auto; /* keeps aspect ratio */
+  transform: rotate(var(--angle));
+  z-index: 10;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 </style>

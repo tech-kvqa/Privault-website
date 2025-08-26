@@ -52,13 +52,15 @@ export default {
       <v-row align="center" no-gutters>
         <!-- Logo -->
         <v-col cols="auto">
-          <v-img
-            src="@/assets/PRIVAULT.svg"
-            class="logo"
-            height="200"
-            width="200"
-            contain
-          ></v-img>
+          <router-link to="/">
+            <v-img
+              src="@/assets/PRIVAULT.svg"
+              class="logo"
+              height="200"
+              width="200"
+              contain
+            ></v-img>
+          </router-link>
         </v-col>
 
         <v-spacer />
@@ -77,7 +79,24 @@ export default {
             content-class="dropdown-content"
           >
             <template v-slot:activator="{ props }">
-              <v-btn variant="plain" color="#1f3557" class="custom-btn no-ripple" rounded="xl" v-bind="props">Product</v-btn>
+              <!-- <v-btn 
+                variant="plain" 
+                color="#1f3557" 
+                class="custom-btn no-ripple" 
+                rounded="xl" 
+                v-bind="props"
+                :class="{ 'active-btn': isProductActive }"
+              >
+              Product</v-btn> -->
+              <v-btn
+                variant="plain"
+                class="custom-btn no-ripple"
+                rounded="xl"
+                v-bind="props"
+                :class="{ 'active-btn': isProductActive }"
+              >
+                Product
+              </v-btn>
             </template>
 
             <v-list
@@ -123,6 +142,12 @@ export default {
         { title: 'Vendor Management', route: '/product/vendor-management' },
         { title: 'Phishing App', route: '/product/phishing-app' }
       ]
+    }
+  },
+
+  computed: {
+    isProductActive() {
+      return this.$route.path.startsWith('/product')
     }
   }
 }
@@ -170,11 +195,13 @@ export default {
   transition: transform 0.2s ease, background-color 0.2s ease;
   background-color: transparent !important;
   box-shadow: none !important;
+  font-weight: 500;
 }
 
 .custom-btn:hover {
   transform: translateY(-2px);
   background-color: transparent !important;
+  font-weight: 700;
 }
 
 .custom-btn:focus,
@@ -190,5 +217,11 @@ export default {
 .no-ripple:focus-visible {
   outline: none !important;
 }
+
+/* Active state for Product */
+::v-deep(.active-btn .v-btn__content) {
+  color: #1f3557 !important;  /* ✅ matches Home/About highlight */
+}
+
 </style>
 

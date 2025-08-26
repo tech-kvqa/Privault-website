@@ -68,7 +68,7 @@ export default createVuetify({
   defaults: {
     global: {
       style: {
-        fontFamily: `'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif`,
+        fontFamily: `'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif, Inter`,
       },
     },
   }
