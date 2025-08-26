@@ -127,10 +127,9 @@ export default {
     </v-container> -->
 
     <!-- Overview Section -->
-    <v-container class="mt-10 text-center" data-aos="fade-up">
+    <!-- <v-container class="mt-10 text-center" data-aos="fade-up">
       <h2 class="text-h5 font-weight-bold mb-4">Overview</h2>
 
-      <!-- Full-width intro paragraph, centered text -->
       <v-row justify="center">
         <v-col cols="12" md="10">
           <p class="text-body-1">
@@ -141,7 +140,6 @@ export default {
         </v-col>
       </v-row>
 
-      <!-- Centered image below -->
       <v-row justify="center" class="mt-6">
         <v-col cols="12" md="8">
           <v-img
@@ -152,7 +150,38 @@ export default {
           ></v-img>
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
+
+    <div class="overview-section">
+      <v-container
+        class="mt-10 text-center"
+        data-aos="fade-up"
+      >
+        <h2 class="text-h5 font-weight-bold mb-4">Overview</h2>
+
+        <v-row justify="center">
+          <v-col cols="12" md="10">
+            <p class="text-body-1">
+              Our Compliance Metrics suite centralizes your privacy governance capabilities. Monitor and manage privacy policy generation, cross-border data transfers, and jurisdictional compliance from one intelligent interface.
+              Automate document creation, assess international transfer risks, and stay aligned with evolving global laws like GDPR, PDPA, CCPA, and more.
+              The platform enables real-time visibility into data flow, generates audit-ready documentation, and integrates with other modules such as Consent and Vendor Management — offering a comprehensive, always-current compliance picture.
+            </p>
+          </v-col>
+        </v-row>
+
+        <v-row justify="center" class="mt-6">
+          <v-col cols="12" md="8">
+            <v-img
+              src="https://via.placeholder.com/700x400"
+              alt="Compliance Metrics Dashboard"
+              class="rounded mx-auto"
+              max-width="100%"
+            ></v-img>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+
 
     <v-divider class="border-opacity-100" color="success"></v-divider>
 
@@ -209,6 +238,7 @@ export default {
           <v-img
             :src="img"
             class="screenshot-img"
+            contain
           />
         </v-carousel-item>
       </v-carousel>
@@ -217,7 +247,7 @@ export default {
     <v-divider class="border-opacity-100" color="success"></v-divider>
 
     <!-- Features Section -->
-    <v-container class="mt-12" data-aos="fade-up">
+    <!-- <v-container class="mt-12" data-aos="fade-up">
       <h2 class="text-h5 font-weight-bold mb-6">Key Features</h2>
       <v-row dense>
         <v-col cols="12" md="4" v-for="(feature, i) in features" :key="i" data-aos="zoom-in">
@@ -228,7 +258,28 @@ export default {
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
+    <!-- Features Section -->
+<div class="features-section">
+  <v-container class="mt-12" data-aos="fade-up">
+    <h2 class="text-h5 font-weight-bold mb-6 features-title">Key Features</h2>
+    <v-row dense>
+      <v-col 
+        cols="12" 
+        md="4" 
+        v-for="(feature, i) in features" 
+        :key="i" 
+        data-aos="zoom-in"
+      >
+        <v-card class="pa-4 individual-feature-card" elevation="2">
+          <v-icon size="32" color="primary" class="mb-2">{{ feature.icon }}</v-icon>
+          <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
+          <p class="text-body-2">{{ feature.description }}</p>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</div>
   </v-container>
 </template>
 
@@ -485,6 +536,20 @@ export default {
   position: relative;
 }
 
+/* .peek-slide {
+  display: block !important;
+  position: absolute !important;
+  top: 0;
+  left: 50%;
+  width: 600px;
+  height: 350px;
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateX(-50%) scale(0.8);
+  z-index: 1;
+  pointer-events: none;
+} */
+
 .peek-slide {
   display: block !important;
   position: absolute !important;
@@ -498,7 +563,6 @@ export default {
   z-index: 1;
   pointer-events: none;
 }
-
 
 .peek-slide.active {
   opacity: 1;
@@ -524,7 +588,7 @@ export default {
 }
 
 
-.screenshot-img {
+/* .screenshot-img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
@@ -533,11 +597,75 @@ export default {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.peek-slide.active:hover {
+  width: 650px !important;
+  height: 400px !important;
+  z-index: 5;
+} */
+
+.screenshot-img {
+  width: 600px !important;
+  height: 350px !important;
+  object-fit: contain !important;  /* ensures proper cropping without distortion */
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
 .peek-slide.active:hover {
   width: 650px !important;
   height: 400px !important;
   z-index: 5;
+}
+
+.overview-section {
+  position: relative;
+  width: 100%;
+  background: url('@/assets/back_wallpaper.jpg') center/cover no-repeat;
+  background-color: #f9fcff;
+  padding: 60px 20px;
+}
+
+.overview-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7); /* white haze */
+  z-index: 0;
+}
+
+.overview-section > * {
+  position: relative;
+  z-index: 1; /* keep text above overlay */
+}
+
+.features-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 20px;
+  background: url('@/assets/feature_background.jpg') center/cover no-repeat;
+  background-color: #0a0a0a;; /* fallback color */
+  overflow: hidden;
+}
+
+/* Overlay haze for readability */
+.features-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background: rgba(255, 255, 255, 0.75); */
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px); /* adds blur for haze */
+  z-index: 0;
+}
+
+.features-section .v-container {
+  position: relative;
+  z-index: 1; /* bring text above haze */
+}
+
+.features-title {
+  color: #a5ae23;
 }
 
 </style>
