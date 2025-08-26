@@ -212,8 +212,9 @@ export default {
     </v-container> -->
 
     <!-- Screenshots Section -->
-    <v-container class="mt-12 screenshots-section text-center" data-aos="fade-up">
-      <h2 class="text-h5 font-weight-bold mb-6">Product Screenshots</h2>
+    <div class="screenshots-section">
+    <v-container class="mt-12 text-center" data-aos="fade-up">
+      <h2 class="text-h5 font-weight-bold mb-6 features-title">Product Screenshots</h2>
       <v-carousel
         v-model="activeIndex"
         cycle
@@ -243,6 +244,7 @@ export default {
         </v-carousel-item>
       </v-carousel>
     </v-container>
+    </div>
 
     <v-divider class="border-opacity-100" color="success"></v-divider>
 
@@ -299,9 +301,9 @@ export default {
       activeIndex: 0,
       slideInterval: null,
       images: [
-        require("@/assets/edited/Complinace/compliance report.png"),
-        require("@/assets/edited/Complinace/cross border dashboard.png"),
-        require("@/assets/edited/Complinace/privacy policy report.png"),
+        require("@/assets/edited/Complinace/compliance report 1.png"),
+        require("@/assets/edited/Complinace/cross border dashboard 1.png"),
+        require("@/assets/edited/Complinace/privacy policy report 1.png"),
         require("@/assets/edited/Complinace/privacy_policy questionnaire.png")
       ],
       features: [
@@ -606,7 +608,7 @@ export default {
 .screenshot-img {
   width: 600px !important;
   height: 350px !important;
-  object-fit: contain !important;  /* ensures proper cropping without distortion */
+  object-fit: fill !important;
   border-radius: 16px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -617,6 +619,13 @@ export default {
   height: 400px !important;
   z-index: 5;
 }
+
+.screenshots-section {
+  background-color: #1f3557; /* static background color */
+  padding: 60px 20px;        /* spacing so text/images don’t touch edges */
+  border-radius: 0px;       /* optional: rounded section look */
+}
+
 
 .overview-section {
   position: relative;
