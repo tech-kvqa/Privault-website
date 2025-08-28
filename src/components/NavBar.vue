@@ -89,14 +89,14 @@ export default {
               >
               Product</v-btn> -->
               <v-btn
-                variant="plain"
-                class="custom-btn no-ripple"
-                rounded="xl"
-                v-bind="props"
-                :class="{ 'active-btn': isProductActive }"
-              >
-                Product
-              </v-btn>
+  variant="plain"
+  class="custom-btn no-ripple"
+  rounded="xl"
+  v-bind="props"
+  :class="{ 'router-link-active': isProductActive }"
+>
+  Product
+</v-btn>
             </template>
 
             <v-list
@@ -221,6 +221,14 @@ export default {
 /* Active state for Product */
 ::v-deep(.active-btn .v-btn__content) {
   color: #1f3557 !important;  /* ✅ matches Home/About highlight */
+}
+
+::v-deep(.active-btn) {
+  color: #1f3557 !important;   /* apply to button */
+}
+
+.router-link-active .v-btn__content {
+  color: #1f3557 !important;
 }
 
 </style>

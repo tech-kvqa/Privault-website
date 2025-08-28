@@ -133,3 +133,26 @@
 .features-title {
   color: #a5ae23;
 }
+
+/* body {
+  font-family: "Inter", sans-serif;
+} */
+
+html, body, .v-application {
+  font-family: "Inter", sans-serif !important;
+}
+
+/* .features-section, 
+.features-section * {
+  font-family: 'Poppins', sans-serif !important;
+} */
+
+.individual-feature-card,
+.individual-feature-card * {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.v-application, 
+.v-application * {
+  font-family: 'Inter', sans-serif !important;
+}

@@ -178,7 +178,7 @@ export default {
             data-aos="zoom-in"
           >
             <v-card class="pa-4 individual-feature-card" elevation="2">
-              <v-icon size="32" class="mb-2">{{ feature.icon }}</v-icon>
+              <v-icon size="32" color="primary" class="mb-2">{{ feature.icon }}</v-icon>
               <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
               <p class="text-body-2">{{ feature.description }}</p>
             </v-card>
