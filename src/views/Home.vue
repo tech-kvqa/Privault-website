@@ -363,7 +363,7 @@ export default {
 
 <script>
 import image1 from "@/assets/edited/dashboard.png";
-import image2 from "@/assets/edited/width_550.png";
+import image2 from "@/assets/edited/Data Minimization Dashboard.png";
 import image3 from "@/assets/edited/width_550.png";
 export default {
   data() {

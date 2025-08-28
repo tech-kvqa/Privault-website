@@ -98,45 +98,104 @@ export default {
 
 <template>
   <v-container fluid class="governance-page pa-0">
+    <!-- Hero Section -->
     <div class="hero-section" data-aos="fade-down">
       <h1 class="text-h2 text-primary mb-2">Governance</h1>
       <p class="text-subtitle-1">Establish a robust data protection governance structure across your organization.</p>
     </div>
 
     <!-- Overview Section -->
-    <v-container class="mt-10" data-aos="fade-up">
-      <v-row justify="center">
-        <v-col cols="12" md="10">
-          <h2 class="text-h5 font-weight-bold text-center mb-4">Overview</h2>
-          <p class="text-body-1 text-center">
-            Governance forms the backbone of a privacy compliance framework. In alignment with ISO/IEC 27701:2019 and ISO/IEC 27001:2022, this module supports structured audit and policy oversight. It includes submodules for Audit Management and Policy Management, enabling traceable, auditable governance operations.
-          </p>
-        </v-col>
-      </v-row>
-    </v-container>
+    <div class="overview-section">
+      <v-container 
+        class="mt-10 text-center" 
+        data-aos="fade-up"
+      >
+        <h2 class="text-h5 font-weight-bold text-center mb-4">Overview</h2>
+        
+        <v-row justify="center">
+          <v-col cols="12" md="10">  
+            <p class="text-body-1 overview-text">
+              Governance forms the backbone of a privacy compliance framework. In alignment with ISO/IEC 27701:2019 and ISO/IEC 27001:2022, this module supports structured audit and policy oversight. It includes submodules for Audit Management and Policy Management, enabling traceable, auditable governance operations.
+            </p>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+
+    <!-- Screenshots Section -->
+    <div class="screenshots-section">
+      <v-container class="mt-12 text-center" data-aos="fade-up">
+        <h2 class="text-h5 font-weight-bold mb-6 features-title">Product Screenshots</h2>
+        <v-carousel
+          v-model="activeIndex"
+          cycle
+          hide-delimiters
+          height="380"
+          max-width="800"
+          interval="4000"
+          class="peek-carousel"
+          show-arrows="hover"
+          @mouseenter="pauseCarousel"
+          @mouseleave="resumeCarousel"
+        >
+          <v-carousel-item
+            v-for="(img, index) in images"
+            :key="index"
+            class="peek-slide"
+            :class="{
+              active: index === activeIndex,
+              prev: index === (activeIndex - 1 + images.length) % images.length,
+              next: index === (activeIndex + 1) % images.length
+            }"
+            @click="goToSlide(index)"
+          >
+            <v-img
+              :src="img"
+              class="screenshot-img"
+              contain
+            />
+          </v-carousel-item>
+        </v-carousel>
+      </v-container>
+    </div>
 
     <!-- Key Features Section -->
-    <v-container class="mt-12" data-aos="fade-up">
-      <h2 class="text-h5 font-weight-bold mb-6">Key Features</h2>
-      <v-row dense>
-        <v-col cols="12" md="4" v-for="(feature, i) in features" :key="i" data-aos="zoom-in">
-          <v-card class="pa-4 individual-feature-card" elevation="2">
-            <v-icon size="36" class="mb-2" :color="iconColor">{{ feature.icon }}</v-icon>
-            <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
-            <p class="text-body-2">{{ feature.description }}</p>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+    <div class="features-section">
+      <v-container class="mt-12" data-aos="fade-up">
+        <h2 class="text-h5 font-weight-bold mb-6 features-title">Key Features</h2>
+        <v-row dense>
+          <v-col 
+            cols="12" 
+            md="4" 
+            v-for="(feature, i) in features" 
+            :key="i" 
+            data-aos="zoom-in"
+          >
+            <v-card class="pa-4 individual-feature-card" elevation="2">
+              <v-icon size="32" class="mb-2">{{ feature.icon }}</v-icon>
+              <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
+              <p class="text-body-2">{{ feature.description }}</p>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
   </v-container>
 </template>
 
 <script>
+import image1 from "@/assets/edited/Governance/audit dashbaord.png"
+import image2 from "@/assets/edited/Governance/Log Audit Finding.png"
+import image3 from "@/assets/edited/Governance/New Policy Form.png"
+import image4 from "@/assets/edited/Governance/Past Policy Versions.png"
+import image5 from "@/assets/edited/Governance/Policy Management Dashboard.png"
 export default {
   name: "Governance",
   data() {
     return {
-      iconColor: "#42a5f5",
+      activeIndex: 0,
+      isCycling: true,
+      images: [image1, image2, image3, image4, image5],
       features: [
         {
           title: "Audit Schedule Management",
@@ -160,7 +219,7 @@ export default {
         },
         {
           title: "Policy Register & Drafting",
-          description: "Maintain centralized policy registers with version control, multi-level approvals, and digital sign-offs.",
+          description: "Maintain centralized compliance policy registers with detailed version control, multi-level approvals, and secure digital sign-offs.",
           icon: "mdi-book-open-outline"
         },
         {
@@ -170,7 +229,7 @@ export default {
         },
         {
           title: "Policy Review & Expiry Alerts",
-          description: "Configure automated review cycles, expiry reminders, and alert owners to maintain up-to-date policies.",
+          description: "Configure automated review cycles, timely expiry reminders, and instant alerts to owners to maintain always up-to-date policies.",
           icon: "mdi-timer-sand"
         },
         {
@@ -189,6 +248,17 @@ export default {
   mounted() {
     import("aos/dist/aos.css");
     import("aos").then(AOS => AOS.init({ duration: 1000 }));
+  },
+  methods: {
+    goToSlide(index) {
+      this.activeIndex = index;
+    },
+    pauseCarousel() {
+      this.isCycling = false;
+    },
+    resumeCarousel() {
+      this.isCycling = true;
+    }
   }
 };
 </script>
@@ -206,7 +276,7 @@ export default {
   color: #e3f0ff;
 }
 
-.individual-feature-card {
+/* .individual-feature-card {
   transition: all 0.3s ease;
   transform: scale(1);
   z-index: 1;
@@ -217,14 +287,14 @@ export default {
   transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  background-color: #e3f0ff; /* Light blue-gray */
-  color: #1f3557; /* Text color */
+  background-color: #e3f0ff;
+  color: #1f3557;
 }
 
 .individual-feature-card:hover h3,
 .individual-feature-card:hover p,
 .individual-feature-card:hover .v-icon {
   color: #1f3557 !important;
-}
+} */
 </style>
 

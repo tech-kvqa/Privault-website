@@ -104,43 +104,87 @@ export default {
 <template>
   <v-container fluid class="pa-0 phishing-app-page">
     <!-- Hero Section -->
-    <v-sheet color="#001F3F" class="text-white py-12 px-6 text-center">
-      <h1 class="text-h3 font-weight-bold mb-2">Phishing Awareness Application</h1>
+    <div class="hero-section" data-aos="fade-down">
+      <h1 class="text-h2 text-primary mb-2">Phishing Awareness Application</h1>
       <p class="text-subtitle-1">Educate, Test & Empower Your Team Against Cyber Threats</p>
-    </v-sheet>
+    </div>
 
     <!-- Overview Section -->
-    <v-container class="mt-10" data-aos="fade-up">
-      <v-row justify="center">
-        <v-col cols="12" md="10">
-          <h2 class="text-h5 font-weight-bold text-center mb-4">Overview</h2>
-          <p class="text-body-1 text-center">
-            The Phishing Awareness Application is a comprehensive cybersecurity tool designed to train users in identifying and avoiding phishing attacks. Through simulated phishing emails, educational materials, quizzes, and performance tracking, it enhances organizational resilience against phishing threats. Admins can monitor progress, send email campaigns, manage content, and generate reports and certificates – all from a centralized dashboard.
-          </p>
-        </v-col>
-      </v-row>
-    </v-container>
+    <div class="overview-section">
+      <v-container
+        class="mt-10 text-center"
+        data-aos="fade-up"
+      >
+        <h2 class="text-h5 font-weight-bold text-center mb-4">Overview</h2>
+
+        <v-row justify="center">
+          <v-col cols="12" md="10">
+            <p class="text-body-1 overview-text">
+              The Phishing Awareness Application is a comprehensive cybersecurity tool designed to train users in identifying and avoiding phishing attacks. Through simulated phishing emails, educational materials, quizzes, and performance tracking, it enhances organizational resilience against phishing threats. Admins can monitor progress, send email campaigns, manage content, and generate reports and certificates – all from a centralized dashboard.
+            </p>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+
+    <!-- Screenshots Section -->
+    <div class="screenshots-section">
+      <v-container class="mt-12 text-center" data-aos="fade-up">
+        <h2 class="text-h5 font-weight-bold mb-6 features-title">Product Screenshots</h2>
+        <v-carousel
+          v-model="activeIndex"
+          cycle
+          hide-delimiters
+          height="380"
+          max-width="800"
+          interval="4000"
+          class="peek-carousel"
+          show-arrows="hover"
+          @mouseenter="pauseCarousel"
+          @mouseleave="resumeCarousel"
+        >
+          <v-carousel-item
+            v-for="(img, index) in images"
+            :key="index"
+            class="peek-slide"
+            :class="{
+              active: index === activeIndex,
+              prev: index === (activeIndex - 1 + images.length) % images.length,
+              next: index === (activeIndex + 1) % images.length
+            }"
+            @click="goToSlide(index)"
+          >
+            <v-img
+              :src="img"
+              class="screenshot-img"
+              contain
+            />
+          </v-carousel-item>
+        </v-carousel>
+      </v-container>
+    </div>
 
     <!-- Key Features -->
-    <v-container class="pb-12">
-      <h2 class="text-h5 font-weight-bold text-center mb-8">Key Features</h2>
-      <v-row>
-        <v-col
-          v-for="(feature, index) in features"
-          :key="index"
-          cols="12"
-          sm="6"
-          md="4"
-          data-aos="fade-up"
-        >
-          <v-card class="pa-4 text-center individual-feature-card" elevation="3">
-            <v-icon color="#80d8ff" size="36" class="mb-3">{{ feature.icon }}</v-icon>
-            <h3 class="text-subtitle-1 font-weight-medium mb-2">{{ feature.title }}</h3>
-            <p class="text-body-2">{{ feature.description }}</p>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+    <div class="features-section">
+      <v-container class="mt-12" data-aos="fade-up">
+        <h2 class="text-h5 font-weight-bold mb-6 features-title">Key Features</h2>
+        <v-row dense>
+          <v-col 
+            cols="12" 
+            md="4" 
+            v-for="(feature, i) in features" 
+            :key="i" 
+            data-aos="zoom-in"
+          >
+            <v-card class="pa-4 individual-feature-card" elevation="2">
+              <v-icon size="32" class="mb-3" color="primary">{{ feature.icon }}</v-icon>
+              <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
+              <p class="text-body-2">{{ feature.description }}</p>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
 
     <!-- Demo Section -->
     <!-- <v-container class="pb-12">
@@ -175,10 +219,16 @@ export default {
 </template>
 
 <script>
+import image1 from "@/assets/edited/Phishing/Phishing Dashboard.png"
+import image2 from "@/assets/edited/Phishing/Manage Question Page.png"
+import image3 from "@/assets/edited/Phishing/Phishing Report.png"
 export default {
   name: 'PhishingApp',
   data() {
     return {
+      activeIndex: 0,
+      isCycling: true,
+      images: [image1, image2, image3],
       features: [
         {
           title: "User Authentication",
@@ -227,16 +277,46 @@ export default {
         }
       ]
     };
+  },
+
+  mounted() {
+    import("aos/dist/aos.css");
+    import("aos").then((AOS) => AOS.init({ duration: 1000, once: true }));
+
+    // Auto-slide every 3s
+    // this.slideInterval = setInterval(() => {
+    //   this.activeIndex = (this.activeIndex + 1) % this.images.length;
+    // }, 3000);
+  },
+
+  methods: {
+    goToSlide(index) {
+      this.activeIndex = index;
+    },
+    pauseCarousel() {
+      this.isCycling = false;
+    },
+    resumeCarousel() {
+      this.isCycling = true;
+    }
   }
 };
 </script>
 
 <style scoped>
 .phishing-app-page {
-  background: linear-gradient(to bottom, #f4faff, #e3f0ff);
+  background: linear-gradient(to bottom right, #f4faff, #e3f0ff);
+  padding-bottom: 100px;
 }
 
-.individual-feature-card {
+.hero-section {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #1f3557;
+  color: #e3f0ff;
+}
+
+/* .individual-feature-card {
   transition: all 0.3s ease;
   transform: scale(1);
   z-index: 1;
@@ -247,14 +327,14 @@ export default {
   transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  background-color: #e3f0ff; /* Light blue-gray */
-  color: #1f3557; /* Text color */
+  background-color: #e3f0ff;
+  color: #1f3557;
 }
 
 .individual-feature-card:hover h3,
 .individual-feature-card:hover p,
 .individual-feature-card:hover .v-icon {
   color: #1f3557 !important;
-}
+} */
 </style>
 

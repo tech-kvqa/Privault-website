@@ -8,6 +8,8 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './assets/style.css'
 
+import '@/styles/product-theme.css'
+
 loadFonts()
 
 AOS.init({

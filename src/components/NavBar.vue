@@ -136,7 +136,7 @@ export default {
       products: [
         { title: 'Compliance Metrics', route: '/product/compliance-metrics' },
         { title: 'Breach Management', route: '/product/breach-management' },
-        { title: 'Data Protection Impact assessment', route: '/product/dpia' },
+        { title: 'Data Protection Impact Assessment', route: '/product/dpia' },
         { title: 'Governance', route: '/product/governance' },
         { title: 'DSR Management', route: '/product/dsr-management' },
         { title: 'Vendor Management', route: '/product/vendor-management' },

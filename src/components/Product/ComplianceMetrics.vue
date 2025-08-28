@@ -137,37 +137,39 @@ export default {
 
     <!-- Screenshots Section -->
     <div class="screenshots-section">
-    <v-container class="mt-12 text-center" data-aos="fade-up">
-      <h2 class="text-h5 font-weight-bold mb-6 features-title">Product Screenshots</h2>
-      <v-carousel
-        v-model="activeIndex"
-        cycle
-        hide-delimiters
-        height="380"
-        max-width="800"
-        interval="4000"
-        class="peek-carousel"
-        show-arrows="hover"
-      >
-        <v-carousel-item
-          v-for="(img, index) in images"
-          :key="index"
-          class="peek-slide"
-          :class="{
-            active: index === activeIndex,
-            prev: index === (activeIndex - 1 + images.length) % images.length,
-            next: index === (activeIndex + 1) % images.length
-          }"
-          @click="goToSlide(index)"
+      <v-container class="mt-12 text-center" data-aos="fade-up">
+        <h2 class="text-h5 font-weight-bold mb-6 features-title">Product Screenshots</h2>
+        <v-carousel
+          v-model="activeIndex"
+          cycle
+          hide-delimiters
+          height="380"
+          max-width="800"
+          interval="4000"
+          class="peek-carousel"
+          show-arrows="hover"
+          @mouseenter="pauseCarousel"
+          @mouseleave="resumeCarousel"
         >
-          <v-img
-            :src="img"
-            class="screenshot-img"
-            contain
-          />
-        </v-carousel-item>
-      </v-carousel>
-    </v-container>
+          <v-carousel-item
+            v-for="(img, index) in images"
+            :key="index"
+            class="peek-slide"
+            :class="{
+              active: index === activeIndex,
+              prev: index === (activeIndex - 1 + images.length) % images.length,
+              next: index === (activeIndex + 1) % images.length
+            }"
+            @click="goToSlide(index)"
+          >
+            <v-img
+              :src="img"
+              class="screenshot-img"
+              contain
+            />
+          </v-carousel-item>
+        </v-carousel>
+      </v-container>
     </div>
 
     <!-- Features Section -->
@@ -208,7 +210,7 @@ export default {
       // image3,
       // image4,
       activeIndex: 0,
-      slideInterval: null,
+      isCycling: true,
       images: [
         require("@/assets/edited/Complinace/compliance report 1.png"),
         require("@/assets/edited/Complinace/cross border dashboard 1.png"),
@@ -254,14 +256,20 @@ export default {
     import("aos").then((AOS) => AOS.init({ duration: 1000, once: true }));
 
     // Auto-slide every 3s
-    this.slideInterval = setInterval(() => {
-      this.activeIndex = (this.activeIndex + 1) % this.images.length;
-    }, 3000);
+    // this.slideInterval = setInterval(() => {
+    //   this.activeIndex = (this.activeIndex + 1) % this.images.length;
+    // }, 3000);
   },
 
   methods: {
     goToSlide(index) {
       this.activeIndex = index;
+    },
+    pauseCarousel() {
+      this.isCycling = false;
+    },
+    resumeCarousel() {
+      this.isCycling = true;
     }
   }
 };

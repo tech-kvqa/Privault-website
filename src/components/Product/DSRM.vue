@@ -111,38 +111,95 @@ export default {
     </div>
 
     <!-- Overview Section -->
-    <v-container class="mt-10" data-aos="fade-up">
-      <v-row justify="center">
-        <v-col cols="12" md="10">
-          <h2 class="text-h5 font-weight-bold text-center mb-4">Overview</h2>
-          <p class="text-body-1 text-center">
-            The Data Subject Rights (DSR) Management module provides a seamless way for individuals to submit, track, and manage their personal data requests as mandated by privacy regulations. With role-based access, multilingual support, and complete audit logs, organizations can ensure compliance and transparency while enhancing trust.
-          </p>
-        </v-col>
-      </v-row>
-    </v-container>
+     <div class="overview-section">
+      <v-container 
+        class="mt-10 text-center" 
+        data-aos="fade-up"
+      >
+        <h2 class="text-h5 font-weight-bold text-center mb-4">Overview</h2>
+        
+        <v-row justify="center">
+          <v-col cols="12" md="10">
+            <p class="text-body-1 overview-text">
+              The Data Subject Rights (DSR) Management module provides a seamless way for individuals to submit, track, and manage their personal data requests as mandated by privacy regulations. With role-based access, multilingual support, and complete audit logs, organizations can ensure compliance and transparency while enhancing trust.
+            </p>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+
+    <!-- Screenshots Section -->
+    <div class="screenshots-section">
+      <v-container class="mt-12 text-center" data-aos="fade-up">
+        <h2 class="text-h5 font-weight-bold mb-6 features-title">Product Screenshots</h2>
+        <v-carousel
+          v-model="activeIndex"
+          cycle
+          hide-delimiters
+          height="380"
+          max-width="800"
+          interval="4000"
+          class="peek-carousel"
+          show-arrows="hover"
+          @mouseenter="pauseCarousel"
+          @mouseleave="resumeCarousel"
+        >
+          <v-carousel-item
+            v-for="(img, index) in images"
+            :key="index"
+            class="peek-slide"
+            :class="{
+              active: index === activeIndex,
+              prev: index === (activeIndex - 1 + images.length) % images.length,
+              next: index === (activeIndex + 1) % images.length
+            }"
+            @click="goToSlide(index)"
+          >
+            <v-img
+              :src="img"
+              class="screenshot-img"
+              contain
+            />
+          </v-carousel-item>
+        </v-carousel>
+      </v-container>
+    </div>
 
     <!-- Key Features Section -->
-    <v-container class="mt-12" data-aos="fade-up">
-      <h2 class="text-h5 font-weight-bold mb-6 text-center">Key Features</h2>
-      <v-row dense>
-        <v-col cols="12" md="4" v-for="(feature, i) in features" :key="i" data-aos="zoom-in">
-          <v-card class="pa-4 individual-feature-card" elevation="2">
-            <v-icon size="36" class="mb-3 text-primary">{{ feature.icon }}</v-icon>
-            <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
-            <p class="text-body-2">{{ feature.description }}</p>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+    <div class="features-section">
+      <v-container class="mt-12" data-aos="fade-up">
+        <h2 class="text-h5 font-weight-bold mb-6 features-title">Key Features</h2>
+        <v-row dense>
+          <v-col 
+            cols="12" 
+            md="4" 
+            v-for="(feature, i) in features" 
+            :key="i" 
+            data-aos="zoom-in"
+          >
+            <v-card class="pa-4 individual-feature-card" elevation="2">
+              <v-icon size="32" class="mb-2">{{ feature.icon }}</v-icon>
+              <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
+              <p class="text-body-2">{{ feature.description }}</p>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
   </v-container>
 </template>
 
 <script>
+import image1 from "@/assets/edited/DSRM/DSRM Dashboard.png"
+import image2 from "@/assets/edited/DSRM/Client Data.png"
+import image3 from "@/assets/edited/DSRM/DSR Form.png"
 export default {
   name: "DSRManagement",
   data() {
     return {
+      activeIndex: 0,
+      isCycling: true,
+      images: [image1, image2, image3],
       features: [
         {
           title: "Submit & Track Requests",
@@ -180,6 +237,18 @@ export default {
   mounted() {
     import("aos/dist/aos.css");
     import("aos").then(AOS => AOS.init({ duration: 1000 }));
+  },
+
+  methods: {
+    goToSlide(index) {
+      this.activeIndex = index;
+    },
+    pauseCarousel() {
+      this.isCycling = false;
+    },
+    resumeCarousel() {
+      this.isCycling = true;
+    }
   }
 };
 </script>
@@ -197,7 +266,7 @@ export default {
   color: #e3f0ff;
 }
 
-.individual-feature-card {
+/* .individual-feature-card {
   transition: all 0.3s ease;
   transform: scale(1);
   z-index: 1;
@@ -208,13 +277,13 @@ export default {
   transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  background-color: #e3f0ff; /* Light blue-gray */
-  color: #1f3557; /* Text color */
+  background-color: #e3f0ff;
+  color: #1f3557;
 }
 
 .individual-feature-card:hover h3,
 .individual-feature-card:hover p,
 .individual-feature-card:hover .v-icon {
   color: #1f3557 !important;
-}
+} */
 </style>
