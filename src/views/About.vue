@@ -24,13 +24,13 @@
     <!-- Hero Section -->
     <div class="hero-section" data-aos="fade-down">
       <h1 class="text-h2 text-primary mb-2">About Us</h1>
-      <p class="text-subtitle-1">
+      <p class="text-subtitle-1 hero-text">
         At Privault, we believe privacy is not just compliance — it’s a right and necessity.
       </p>
     </div>
 
     <!-- Who We Are -->
-    <v-container class="mt-10 text-center" data-aos="fade-up">
+    <v-container class="mt-10 text-center section-light" data-aos="fade-up">
       <h2 class="text-h5 font-weight-bold mb-4">Who We Are</h2>
       <v-row justify="center">
         <v-col cols="12" md="10">
@@ -54,7 +54,7 @@
     </v-container>
 
     <!-- Vision & Mission -->
-    <v-container class="mt-12" data-aos="fade-up">
+    <v-container class="mt-12 section-blue" data-aos="fade-up">
       <h2 class="text-h5 font-weight-bold mb-6">Our Vision & Mission</h2>
       <v-row dense>
         <v-col cols="12" md="6">
@@ -81,7 +81,7 @@
     </v-container>
 
     <!-- Founder’s Note -->
-    <v-container class="mt-12 text-center" data-aos="fade-up">
+    <v-container class="mt-12 text-center section-gradient" data-aos="fade-up">
       <h2 class="text-h5 font-weight-bold mb-6">A Note from the Founder</h2>
       <blockquote class="founder-note">
         "Privault was created with one core belief: privacy should empower, not hinder. Most
@@ -91,7 +91,7 @@
     </v-container>
 
     <!-- Who We Work With -->
-    <v-container class="mt-12" data-aos="fade-up">
+    <v-container class="mt-12 section-light" data-aos="fade-up">
       <h2 class="text-h5 font-weight-bold mb-6">Who We Work With</h2>
       <v-row dense>
         <v-col cols="12" md="4" v-for="(sector, i) in sectors" :key="i">
@@ -104,7 +104,7 @@
     </v-container>
 
     <!-- Why Choose Us -->
-    <v-container class="mt-12" data-aos="fade-up">
+    <v-container class="mt-12 section-blue" data-aos="fade-up">
       <h2 class="text-h5 font-weight-bold mb-6">Why Choose Privault?</h2>
       <v-row dense>
         <v-col cols="12" md="4" v-for="(reason, i) in reasons" :key="i">
@@ -150,7 +150,7 @@ export default {
 </script>
 
 <style scoped>
-.about-page {
+/* .about-page {
   background: linear-gradient(to bottom right, #f0f4f8, #e3f0ff);
   padding-bottom: 100px;
 }
@@ -188,5 +188,147 @@ export default {
 .individual-feature-card:hover p,
 .individual-feature-card:hover .v-icon {
   color: #1f3557 !important;
+} */
+
+ .about-page {
+  background: linear-gradient(to bottom right, #f9fbfd, #e6f2ff);
+  padding-bottom: 120px;
 }
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1f3557, #2a4d7d);
+  color: #e3f0ff;
+  /* border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px; */
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Section Headings */
+.about-page h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1f3557;
+  margin-bottom: 1.5rem;
+}
+
+.about-page h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #1f3557;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Body text */
+.about-page p {
+  line-height: 1.7;
+  color: #2d2d2d;
+  font-size: 1.05rem;
+}
+
+/* Feature Cards */
+.individual-feature-card {
+  transition: all 0.35s ease;
+  transform: translateY(0);
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(31, 53, 87, 0.1);
+}
+
+.individual-feature-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to bottom right, #e9f3ff, #ffffff);
+}
+
+.individual-feature-card h3 {
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 6px;
+  color: #1f3557;
+}
+
+.individual-feature-card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.individual-feature-card .v-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.individual-feature-card:hover .v-icon {
+  transform: scale(1.2);
+  color: #1f3557 !important;
+}
+
+/* Founder’s Note */
+.founder-note {
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  background: #ffffff;
+  border-left: 5px solid #1f3557;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  color: #1f3557;
+}
+
+.section-blue {
+  background-color: #c6d2e0;
+  padding: 60px 20px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+}
+
+.section-light {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, #f0f7ff, #dceeff);
+  padding: 60px 20px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .hero-section p {
+    font-size: 1rem;
+  }
+}
+
+.hero-text {
+  color: #e3f0ff !important;
+}
+
 </style>
