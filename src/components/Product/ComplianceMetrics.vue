@@ -105,53 +105,6 @@ export default {
       </p>
     </div>
 
-    <!-- Overview Section -->
-    <!-- <v-container class="mt-10" data-aos="fade-up">
-      <v-row>
-        <v-col cols="12" md="6">
-          <h2 class="text-h5 font-weight-bold">Overview</h2>
-          <p>
-            Our Compliance Metrics suite centralizes your privacy governance capabilities. Monitor and manage privacy policy generation, cross-border data transfers, and jurisdictional compliance from one intelligent interface.
-            Automate document creation, assess international transfer risks, and stay aligned with evolving global laws like GDPR, PDPA, CCPA, and more.
-            The platform enables real-time visibility into data flow, generates audit-ready documentation, and integrates with other modules such as Consent and Vendor Management — offering a comprehensive, always-current compliance picture.
-          </p>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-img
-            src="https://via.placeholder.com/500x300"
-            alt="Compliance Metrics Dashboard"
-            class="rounded"
-          ></v-img>
-        </v-col>
-      </v-row>
-    </v-container> -->
-
-    <!-- Overview Section -->
-    <!-- <v-container class="mt-10 text-center" data-aos="fade-up">
-      <h2 class="text-h5 font-weight-bold mb-4">Overview</h2>
-
-      <v-row justify="center">
-        <v-col cols="12" md="10">
-          <p class="text-body-1">
-            Our Compliance Metrics suite centralizes your privacy governance capabilities. Monitor and manage privacy policy generation, cross-border data transfers, and jurisdictional compliance from one intelligent interface.
-            Automate document creation, assess international transfer risks, and stay aligned with evolving global laws like GDPR, PDPA, CCPA, and more.
-            The platform enables real-time visibility into data flow, generates audit-ready documentation, and integrates with other modules such as Consent and Vendor Management — offering a comprehensive, always-current compliance picture.
-          </p>
-        </v-col>
-      </v-row>
-
-      <v-row justify="center" class="mt-6">
-        <v-col cols="12" md="8">
-          <v-img
-            src="https://via.placeholder.com/700x400"
-            alt="Compliance Metrics Dashboard"
-            class="rounded mx-auto"
-            max-width="100%"
-          ></v-img>
-        </v-col>
-      </v-row>
-    </v-container> -->
-
     <div class="overview-section">
       <v-container
         class="mt-10 text-center"
@@ -161,7 +114,7 @@ export default {
 
         <v-row justify="center">
           <v-col cols="12" md="10">
-            <p class="text-body-1">
+            <p class="text-body-1 overview-text">
               Our Compliance Metrics suite centralizes your privacy governance capabilities. Monitor and manage privacy policy generation, cross-border data transfers, and jurisdictional compliance from one intelligent interface.
               Automate document creation, assess international transfer risks, and stay aligned with evolving global laws like GDPR, PDPA, CCPA, and more.
               The platform enables real-time visibility into data flow, generates audit-ready documentation, and integrates with other modules such as Consent and Vendor Management — offering a comprehensive, always-current compliance picture.
@@ -181,35 +134,6 @@ export default {
         </v-row>
       </v-container>
     </div>
-
-
-    <v-divider class="border-opacity-100" color="success"></v-divider>
-
-    <!-- Screenshots Section -->
-    <!-- <v-container class="mt-12 screenshots-section text-center" data-aos="fade-up">
-      <h2 class="text-h5 font-weight-bold mb-6">Product Screenshots</h2>
-      <div class="screenshot-gallery">
-        <img :src="image1" alt="Dashboard" class="screenshot-img img1" />
-        <img :src="image2" alt="Reports" class="screenshot-img img2" />
-        <img :src="image3" alt="Trends" class="screenshot-img img3" />
-        <img :src="image4" alt="Trends" class="screenshot-img img4" />
-      </div>
-    </v-container> -->
-
-    <!-- Screenshots Section -->
-    <!-- <v-container class="mt-12 screenshots-section text-center" data-aos="fade-up">
-      <h2 class="text-h5 font-weight-bold mb-6">Product Screenshots</h2>
-      
-      <div class="screenshot-gallery">
-        <img 
-          v-for="(img, index) in images" 
-          :key="index" 
-          :src="img" 
-          :class="['screenshot-img', { active: index === activeIndex }]" 
-          alt="Screenshot"
-        />
-      </div>
-    </v-container> -->
 
     <!-- Screenshots Section -->
     <div class="screenshots-section">
@@ -246,42 +170,27 @@ export default {
     </v-container>
     </div>
 
-    <v-divider class="border-opacity-100" color="success"></v-divider>
-
     <!-- Features Section -->
-    <!-- <v-container class="mt-12" data-aos="fade-up">
-      <h2 class="text-h5 font-weight-bold mb-6">Key Features</h2>
-      <v-row dense>
-        <v-col cols="12" md="4" v-for="(feature, i) in features" :key="i" data-aos="zoom-in">
-          <v-card class="pa-4 individual-feature-card" elevation="2">
-            <v-icon size="32" color="primary" class="mb-2">{{ feature.icon }}</v-icon>
-            <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
-            <p class="text-body-2">{{ feature.description }}</p>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container> -->
-    <!-- Features Section -->
-<div class="features-section">
-  <v-container class="mt-12" data-aos="fade-up">
-    <h2 class="text-h5 font-weight-bold mb-6 features-title">Key Features</h2>
-    <v-row dense>
-      <v-col 
-        cols="12" 
-        md="4" 
-        v-for="(feature, i) in features" 
-        :key="i" 
-        data-aos="zoom-in"
-      >
-        <v-card class="pa-4 individual-feature-card" elevation="2">
-          <v-icon size="32" color="primary" class="mb-2">{{ feature.icon }}</v-icon>
-          <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
-          <p class="text-body-2">{{ feature.description }}</p>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-</div>
+    <div class="features-section">
+      <v-container class="mt-12" data-aos="fade-up">
+        <h2 class="text-h5 font-weight-bold mb-6 features-title">Key Features</h2>
+        <v-row dense>
+          <v-col 
+            cols="12" 
+            md="4" 
+            v-for="(feature, i) in features" 
+            :key="i" 
+            data-aos="zoom-in"
+          >
+            <v-card class="pa-4 individual-feature-card" elevation="2">
+              <v-icon size="32" color="primary" class="mb-2">{{ feature.icon }}</v-icon>
+              <h3 class="text-subtitle-1 font-weight-medium">{{ feature.title }}</h3>
+              <p class="text-body-2">{{ feature.description }}</p>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
   </v-container>
 </template>
 
@@ -289,7 +198,7 @@ export default {
 import image1 from "@/assets/edited/Complinace/compliance report.png"
 import image2 from "@/assets/edited/Complinace/cross border dashboard.png"
 import image3 from "@/assets/edited/Complinace/privacy policy report.png"
-import image4 from "@/assets/edited/Complinace/privacy_policy questionnaire.png"
+import image4 from "@/assets/edited/Complinace/privacy policy questionnaire.png"
 export default {
   name: "ComplianceMetrics",
   data() {
@@ -303,8 +212,8 @@ export default {
       images: [
         require("@/assets/edited/Complinace/compliance report 1.png"),
         require("@/assets/edited/Complinace/cross border dashboard 1.png"),
-        require("@/assets/edited/Complinace/privacy policy report 1.png"),
-        require("@/assets/edited/Complinace/privacy_policy questionnaire.png")
+        require("@/assets/edited/Complinace/privacy policy report 2.png"),
+        require("@/assets/edited/Complinace/privacy policy questionnaire.png")
       ],
       features: [
         {
@@ -376,14 +285,18 @@ export default {
   transform: scale(1);
   z-index: 1;
   position: relative;
+  border: 2px solid transparent;
+  border-radius: 12px;
 }
 
 .individual-feature-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateX(-8px) translateY(-8px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  background-color: #e3f0ff; /* Light blue-gray */
-  color: #1f3557; /* Text color */
+  /* z-index: 10; */
+  z-index: 9999;
+  background-color: #e3f0ff;
+  color: #1f3557;
+  border: 2px solid #1f3557;
 }
 
 .individual-feature-card:hover h3,
@@ -392,178 +305,32 @@ export default {
   color: #1f3557 !important;
 }
 
-/* .screenshot-gallery {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  height: 500px;
-} */
-
-/* .screenshot-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-} */
-
-/* .screenshot-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: auto;
-  gap: 20px;
-  justify-items: center;
-  align-items: start;
-} */
-
-/* latest style code. Before is correct. */
-
-/* Style 1 */
-
-/* .screenshot-gallery {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 200px;
-  gap: 20px;
-  justify-items: center;
-  align-items: center;
+.features-section .v-row {
+  overflow: visible !important;
 }
 
-.screenshot-gallery img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
+.features-section .v-col {
+  overflow: visible !important;
+  position: static !important;
 }
-
-.img1 { grid-column: span 3; grid-row: span 2; }
-.img2 { grid-column: span 3; grid-row: span 1; }
-.img3 { grid-column: span 2; grid-row: span 1; }
-.img4 { grid-column: span 4; grid-row: span 1; }
-
-.screenshot-gallery img:hover {
-  width: 600px;
-  height: auto;
-  transform: rotate(var(--angle));
-  z-index: 10;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-  animation: none
-} */
-
-/* Style 2 */
-
-
-/* .screenshot-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.screenshot-gallery img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  transition: all 0.4s ease;
-  cursor: pointer;
-}
-
-.screenshot-gallery img:hover {
-  width: 500px;
-  height: 350px;
-  object-fit: contain;
-  z-index: 10;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-  background: #fff;
-} */
-
-/* Style 3 */
-
-/* .screenshot-gallery {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  overflow: visible;
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.screenshot-gallery img {
-  width: 250px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  transition: all 0.6s ease;
-  opacity: 0.6;
-  z-index: 1;
-  cursor: pointer;
-}
-
-.screenshot-gallery img.active {
-  width: 400px;
-  height: 260px;
-  object-fit: contain;
-  opacity: 1;
-  z-index: 2;
-  background: #fff;
-  padding: 5px;
-}
-
-.screenshot-gallery img:hover {
-  transform: scale(1.2);
-  z-index: 3;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-}
-
-
-@keyframes float {
-  0% { transform: translateY(0px) rotate(var(--angle)); }
-  50% { transform: translateY(-10px) rotate(var(--angle)); }
-  100% { transform: translateY(0px) rotate(var(--angle)); }
-} */
-
-/* Style 4 */
 
 .peek-carousel {
   overflow: visible !important;
   position: relative;
 }
 
-/* .peek-slide {
-  display: block !important;
-  position: absolute !important;
-  top: 0;
-  left: 50%;
-  width: 600px;
-  height: 350px;
-  transition: all 0.6s ease;
-  opacity: 0;
-  transform: translateX(-50%) scale(0.8);
-  z-index: 1;
-  pointer-events: none;
-} */
-
 .peek-slide {
   display: block !important;
   position: absolute !important;
   top: 0;
   left: 50%;
-  width: 600px;
-  height: 350px;
   transition: all 0.6s ease;
   opacity: 0;
   transform: translateX(-50%) scale(0.8);
   z-index: 1;
   pointer-events: none;
+  /* background: #1f3557; */
+  background: transparent;
 }
 
 .peek-slide.active {
@@ -589,48 +356,35 @@ export default {
   cursor: pointer;
 }
 
-
-/* .screenshot-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.peek-slide.active:hover {
-  width: 650px !important;
-  height: 400px !important;
-  z-index: 5;
-} */
-
 .screenshot-img {
-  width: 600px !important;
-  height: 350px !important;
-  object-fit: fill !important;
+  width: 600px;
+  height: 350px;
+  object-fit: contain;
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  /* box-shadow: 0 8px 25px rgba(0,0,0,0.25); */
+  /* transition: transform 0.4s ease, box-shadow 0.4s ease; */
+  transition: width 0.4s ease, height 0.4s ease;
 }
 
-.peek-slide.active:hover {
-  width: 650px !important;
-  height: 400px !important;
-  z-index: 5;
+.peek-slide.active:hover .screenshot-img {
+  width: 700px;
+  height: 500px;
+  /* box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35); */
+  z-index: 10;
 }
 
 .screenshots-section {
-  background-color: #1f3557; /* static background color */
-  padding: 60px 20px;        /* spacing so text/images don’t touch edges */
-  border-radius: 0px;       /* optional: rounded section look */
+  background-color: #195d79;
+  padding: 60px 20px;
+  border-radius: 0px;
 }
 
 
 .overview-section {
   position: relative;
   width: 100%;
-  background: url('@/assets/back_wallpaper.jpg') center/cover no-repeat;
+  /* background: url('@/assets/back_wallpaper.jpg') center/cover no-repeat; */
+  background: linear-gradient(135deg, #f9fcff, #e8f2ff);
   background-color: #f9fcff;
   padding: 60px 20px;
 }
@@ -639,7 +393,7 @@ export default {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.7); /* white haze */
+  background: rgba(255, 255, 255, 0.7);
   z-index: 0;
 }
 
@@ -652,8 +406,11 @@ export default {
   position: relative;
   width: 100%;
   padding: 80px 20px;
-  background: url('@/assets/feature_background.jpg') center/cover no-repeat;
-  background-color: #0a0a0a;; /* fallback color */
+  /* background: url('@/assets/feature_background.jpg') center/cover no-repeat; */
+  background: linear-gradient(160deg, #1f3557, #0d223b);
+  background-color: #0a0a0a;
+  /* background: linear-gradient(135deg, #f9fcff, #e8f2ff);
+  background-color: #f9fcff; */
   overflow: hidden;
 }
 
@@ -663,7 +420,7 @@ export default {
   position: absolute;
   inset: 0;
   /* background: rgba(255, 255, 255, 0.75); */
-  background: rgba(0, 0, 0, 0.55);
+  /* background: rgba(0, 0, 0, 0.55); */
   backdrop-filter: blur(3px); /* adds blur for haze */
   z-index: 0;
 }
@@ -673,8 +430,22 @@ export default {
   z-index: 1; /* bring text above haze */
 }
 
+.feature-icon {
+  background: #e3f0ff;
+  border-radius: 50%;
+  padding: 12px;
+  margin-bottom: 12px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .features-title {
   color: #a5ae23;
 }
 
+.overview-text {
+  color: #1f3557;
+}
 </style>
