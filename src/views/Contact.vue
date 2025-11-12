@@ -107,15 +107,15 @@ h2 {
               </p>
               <div class="mb-4">
                 <v-icon color="primary" class="me-3">mdi-email</v-icon>
-                <span>support@yourcompany.com</span>
+                <span></span>
               </div>
               <div class="mb-4">
                 <v-icon color="primary" class="me-3">mdi-phone</v-icon>
-                <span>+91 98765 43210</span>
+                <span></span>
               </div>
               <div class="mb-4">
                 <v-icon color="primary" class="me-3">mdi-map-marker</v-icon>
-                <span>123, HRMS Street, Bengaluru, India</span>
+                <span>202, DLF GALLERIA MALL, MAYUR VIHAR, PHASE-1, DELHI-110091, INDIA</span>
               </div>
             </v-col>
 

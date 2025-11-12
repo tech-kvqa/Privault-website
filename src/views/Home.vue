@@ -306,7 +306,7 @@ export default {
 
     <section class="hero-section d-flex align-center justify-center text-center">
       <div class="hero-content">
-        <h1 class="hero-title mb-3">Cybersecurity Redefined</h1>
+        <h1 class="hero-title mb-3">Privacy Redefined</h1>
         <p class="hero-subtitle mb-6">
           Your digital shield against modern threats.
         </p>
