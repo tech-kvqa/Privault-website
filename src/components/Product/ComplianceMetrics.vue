@@ -519,4 +519,20 @@ export default {
   }
 }
 
+@media (max-width: 768px) {
+  .individual-feature-card {
+    transform: scale(1.05) translateX(-8px) translateY(-8px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important;
+    background-color: #e3f0ff !important;
+    color: #1f3557 !important;
+    border: 2px solid #1f3557 !important;
+  }
+
+  .individual-feature-card h3,
+  .individual-feature-card p,
+  .individual-feature-card .v-icon {
+    color: #1f3557 !important;
+  }
+}
+
 </style>

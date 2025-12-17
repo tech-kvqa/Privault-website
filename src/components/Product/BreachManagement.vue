@@ -336,6 +336,8 @@ export default {
 </template>
 
 <script>
+import AOS from "aos";
+import "aos/dist/aos.css";
 import image1 from "@/assets/edited/Breach Management/Breach Incident Dashboard.png";
 import image2 from "@/assets/edited/Breach Management/Breach Incident Report.png";
 import image3 from "@/assets/edited/Breach Management/Incident Log.png";
