@@ -284,7 +284,7 @@ export default {
             class="peek-slide"
             :class="{
               active: index === activeIndex,
-              prev: index === (activeIndex -1 + images.length) % images.length,
+              prev: index === (activeIndex - 1 + images.length) % images.length,
               next: index === (activeIndex + 1) % images.length
             }"
             @click="goToSlide(index)"

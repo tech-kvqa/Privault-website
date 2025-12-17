@@ -209,6 +209,8 @@ export default {
 </template>
 
 <script>
+import AOS from "aos";
+import "aos/dist/aos.css";
 import image1 from "@/assets/edited/Complinace/compliance report.png"
 import image2 from "@/assets/edited/Complinace/cross border dashboard.png"
 import image3 from "@/assets/edited/Complinace/privacy policy report.png"
