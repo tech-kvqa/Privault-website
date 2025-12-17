@@ -71,14 +71,22 @@ export default {
 
           <v-btn variant="plain" color="#1f3557" class="custom-btn no-ripple" rounded="xl" to="/about">About</v-btn>
 
-          <v-menu
+          <!-- <v-menu
             v-model="productMenu"
             open-on-hover
             offset-y
             transition="slide-x-transition"
             content-class="dropdown-content"
+          > -->
+          <!-- <v-menu
+            v-model="productMenu"
+            :open-on-hover="!isMobile"
+            offset-y
+            transition="slide-x-transition"
+            content-class="dropdown-content"
           >
-            <template v-slot:activator="{ props }">
+
+            <template v-slot:activator="{ props }"> -->
               <!-- <v-btn 
                 variant="plain" 
                 color="#1f3557" 
@@ -88,15 +96,24 @@ export default {
                 :class="{ 'active-btn': isProductActive }"
               >
               Product</v-btn> -->
-              <v-btn
-  variant="plain"
-  class="custom-btn no-ripple"
-  rounded="xl"
-  v-bind="props"
-  :class="{ 'router-link-active': isProductActive }"
->
-  Product
-</v-btn>
+              <!-- <v-btn
+                variant="plain"
+                class="custom-btn no-ripple"
+                rounded="xl"
+                v-bind="props"
+                :class="{ 'router-link-active': isProductActive }"
+              >
+                Product
+              </v-btn> -->
+              <!-- <v-btn
+                variant="plain"
+                class="custom-btn no-ripple"
+                rounded="xl"
+                v-bind="props"
+                @click="isMobile && (productMenu = !productMenu)"
+              >
+                Product
+              </v-btn>
             </template>
 
             <v-list
@@ -114,6 +131,36 @@ export default {
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
+          </v-menu> -->
+
+          <v-menu
+            v-model="productMenu"
+            :open-on-hover="!isMobile"
+            location="bottom"
+            transition="slide-y-transition"
+            content-class="dropdown-content"
+          >
+            <template #activator="{ props }">
+              <v-btn
+                v-bind="props"
+                variant="plain"
+                class="custom-btn no-ripple"
+                rounded="xl"
+              >
+                Product
+              </v-btn>
+            </template>
+
+            <v-list class="dropdown-list">
+              <v-list-item
+                v-for="item in products"
+                :key="item.title"
+                :to="item.route"
+                @click="productMenu = false"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
           </v-menu>
 
           <v-btn variant="plain" color="#1f3557" class="custom-btn no-ripple" rounded="xl" to="/contact">Contact</v-btn>
@@ -123,7 +170,7 @@ export default {
   </v-app-bar>
 </template>
 
-<script>
+<!-- <script>
 import PagePreview from './PagePreview.vue';
 
 export default {
@@ -133,6 +180,7 @@ export default {
   data() {
     return {
       productMenu: false, // Controls Product menu state
+      // isMobile: false,
       products: [
         { title: 'Compliance Metrics', route: '/product/compliance-metrics' },
         { title: 'Breach Management', route: '/product/breach-management' },
@@ -145,12 +193,52 @@ export default {
     }
   },
 
+  // mounted() {
+  //   this.isMobile = window.matchMedia('(max-width: 768px)').matches
+  // },
+
   computed: {
     isProductActive() {
       return this.$route.path.startsWith('/product')
+    },
+
+    isMobile() {
+      return this.$vuetify.display.smAndDown
     }
   }
 }
+</script> -->
+<script>
+import { useDisplay } from 'vuetify'
+
+export default {
+  data() {
+    return {
+      productMenu: false,
+      products: [
+        { title: 'Compliance Metrics', route: '/product/compliance-metrics' },
+        { title: 'Breach Management', route: '/product/breach-management' },
+        { title: 'Data Protection Impact Assessment', route: '/product/dpia' },
+        { title: 'Governance', route: '/product/governance' },
+        { title: 'DSR Management', route: '/product/dsr-management' },
+        { title: 'Vendor Management', route: '/product/vendor-management' },
+        { title: 'Phishing App', route: '/product/phishing-app' }
+      ]
+    }
+  },
+
+  setup() {
+    const { smAndDown } = useDisplay()
+    return { smAndDown }
+  },
+
+  computed: {
+    isMobile() {
+      return this.smAndDown
+    }
+  }
+}
+
 </script>
 
 <style scoped>
@@ -229,6 +317,13 @@ export default {
 
 .router-link-active .v-btn__content {
   color: #1f3557 !important;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 120px !important;
+    height: auto !important;
+  }
 }
 
 </style>

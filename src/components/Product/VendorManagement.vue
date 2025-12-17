@@ -132,7 +132,7 @@ export default {
     <div class="screenshots-section">
       <v-container class="mt-12 text-center" data-aos="fade-up">
         <h2 class="text-h5 font-weight-bold mb-6 features-title">Product Screenshots</h2>
-        <v-carousel
+        <!-- <v-carousel
           v-model="activeIndex"
           cycle
           hide-delimiters
@@ -143,6 +143,18 @@ export default {
           show-arrows="hover"
           @mouseenter="pauseCarousel"
           @mouseleave="resumeCarousel"
+        > -->
+        <v-carousel
+          v-model="activeIndex"
+          cycle
+          hide-delimiters
+          :height="isMobile ? 'auto' : 380"
+          max-width="800"
+          interval="4000"
+          class="peek-carousel"
+          :show-arrows="isMobile ? 'always' : 'hover'"
+          @mouseenter="!isMobile && pauseCarousel()"
+          @mouseleave="!isMobile && resumeCarousel()"
         >
           <v-carousel-item
             v-for="(img, index) in images"
@@ -287,4 +299,52 @@ export default {
 .individual-feature-card:hover .v-icon {
   color: #1f3557 !important;
 } */
+
+@media (max-width: 430px) {
+  .peek-carousel {
+    overflow: hidden !important;
+  }
+
+  .peek-slide,
+  .peek-slide.active {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: block !important;
+  }
+
+  .peek-slide.prev,
+  .peek-slide.next {
+    display: none !important;
+  }
+
+  .screenshot-img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  /* Disable hover zoom effect */
+  .peek-slide.active:hover .screenshot-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .individual-feature-card {
+    transform: scale(1.05) translateX(-8px) translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background-color: #e3f0ff;
+    color: #1f3557;
+    border: 2px solid #1f3557;
+  }
+
+  .individual-feature-card h3,
+  .individual-feature-card p,
+  .individual-feature-card .v-icon {
+    color: #1f3557 !important;
+  }
+}
 </style>

@@ -331,4 +331,24 @@ export default {
   color: #e3f0ff !important;
 }
 
+@media (max-width: 430px) {
+
+  /* Who We Work With & Why Choose Privault cards */
+  .individual-feature-card {
+    transform: translateY(-6px) scale(1.00) !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15) !important;
+    background: linear-gradient(to bottom right, #e9f3ff, #ffffff) !important;
+  }
+
+  .individual-feature-card h3,
+  .individual-feature-card p,
+  .individual-feature-card .v-icon {
+    color: #1f3557 !important;
+  }
+
+  .individual-feature-card .v-icon {
+    transform: scale(1.2) !important;
+  }
+}
+
 </style>

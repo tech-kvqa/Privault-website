@@ -562,4 +562,14 @@ export default {
   z-index: 10;
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
+
+@media (max-width: 768px) {
+  .float-img {
+    width: 260px !important;
+  }
+
+  .float-img:hover {
+    width: 260px !important;
+  }
+}
 </style>

@@ -156,3 +156,91 @@ html, body, .v-application {
 .v-application * {
   font-family: 'Inter', sans-serif !important;
 }
+
+@media (max-width: 768px) {
+
+  /* HERO */
+  .hero-section {
+    padding: 40px 16px;
+  }
+
+  .hero-section h1 {
+    font-size: 22px;
+  }
+
+  .hero-section p {
+    font-size: 14px;
+  }
+
+  /* OVERVIEW */
+  .overview-section {
+    padding: 40px 16px;
+  }
+
+  /* SCREENSHOTS */
+  .screenshots-section {
+    padding: 40px 12px;
+  }
+
+  .peek-carousel {
+    overflow: hidden !important;
+  }
+
+  .peek-slide {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .peek-slide.prev,
+  .peek-slide.next {
+    display: none !important;
+  }
+
+  .screenshot-img {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    border-radius: 12px;
+  }
+
+  /* Disable hover zoom on mobile */
+  .peek-slide.active:hover .screenshot-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* FEATURES */
+  .features-section {
+    padding: 40px 16px;
+  }
+
+  .individual-feature-card {
+    transform: none !important;
+  }
+
+  .individual-feature-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+}
+
