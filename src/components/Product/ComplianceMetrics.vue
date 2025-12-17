@@ -535,4 +535,53 @@ export default {
   }
 }
 
+@media (max-width: 768px) {
+  .peek-carousel {
+    overflow: hidden !important;
+  }
+
+  .peek-slide,
+  .peek-slide.active {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: block !important;
+  }
+
+  .peek-slide.prev,
+  .peek-slide.next {
+    display: none !important;
+  }
+
+  .screenshot-img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  /* Disable hover zoom effect */
+  .peek-slide.active:hover .screenshot-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .individual-feature-card {
+    transform: scale(1.05) translateX(-8px) translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background-color: #e3f0ff;
+    color: #1f3557;
+    border: 2px solid #1f3557;
+  }
+
+  .individual-feature-card h3,
+  .individual-feature-card p,
+  .individual-feature-card .v-icon {
+    color: #1f3557 !important;
+  }
+}
+
+
 </style>
