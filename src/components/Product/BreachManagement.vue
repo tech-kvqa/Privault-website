@@ -219,8 +219,12 @@ export default {
 
     <!-- Overview Section -->
     <div class="overview-section">
-      <v-container 
+      <!-- <v-container 
         class="overview-section mt-10 text-center"
+        data-aos="fade-up"
+      > -->
+      <v-container 
+        class="mt-10 text-center"
         data-aos="fade-up"
       >
         <h2 class="text-h5 font-weight-bold mb-4">Overview</h2>
@@ -236,7 +240,7 @@ export default {
         </v-row>
 
         <!-- Image centered -->
-        <!-- <v-row justify="center" class="mt-6">
+        <v-row justify="center" class="mt-6">
           <v-col cols="12" md="8">
             <v-img
               src="https://via.placeholder.com/700x400"
@@ -245,7 +249,7 @@ export default {
               max-width="100%"
             ></v-img>
           </v-col>
-        </v-row> -->
+        </v-row>
       </v-container>
     </div>
 
@@ -350,7 +354,8 @@ export default {
       // image2,
       // image3,
       activeIndex: 0,
-      sideInterval: null,
+      // sideInterval: null,
+      isCycling: true,
       images: [image1, image2, image3, image4],
       features: [
         {
@@ -412,15 +417,15 @@ export default {
   //   },
 
   methods: {
-      goToSlide(index) {
-        this.activeIndex = index;
-      },
-      pauseCarousel() {
-        this.isCycling = false;
-      },
-      resumeCarousel() {
-        this.isCycling = true;
-      }
+    goToSlide(index) {
+      this.activeIndex = index;
+    },
+    pauseCarousel() {
+      this.isCycling = false;
+    },
+    resumeCarousel() {
+      this.isCycling = true;
+    }
   }
 };
 </script>
