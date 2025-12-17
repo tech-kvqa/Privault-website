@@ -151,7 +151,7 @@ export default {
           @mouseenter="pauseCarousel"
           @mouseleave="resumeCarousel"
         > -->
-        <!-- <v-carousel
+        <v-carousel
           v-model="activeIndex"
           cycle
           hide-delimiters
@@ -173,37 +173,6 @@ export default {
               next: index === (activeIndex + 1) % images.length
             }"
             @click="goToSlide(index)"
-          >
-            <v-img
-              :src="img"
-              class="screenshot-img"
-              contain
-            />
-          </v-carousel-item>
-        </v-carousel> -->
-        <v-carousel
-          v-model="activeIndex"
-          cycle
-          hide-delimiters
-          :height="isMobile ? 380 : 380"
-          max-width="800"
-          interval="4000"
-          class="peek-carousel"
-          :show-arrows="isMobile ? 'always' : 'hover'"
-          :touch="true"
-          :continuous="true"
-          @mouseenter="!isMobile && pauseCarousel()"
-          @mouseleave="!isMobile && resumeCarousel()"
-        >
-          <v-carousel-item
-            v-for="(img, index) in images"
-            :key="index"
-            class="peek-slide"
-            :class="{
-              active: index === activeIndex,
-              prev: !isMobile && index === (activeIndex - 1 + images.length) % images.length,
-              next: !isMobile && index === (activeIndex + 1) % images.length
-            }"
           >
             <v-img
               :src="img"
