@@ -563,7 +563,7 @@ export default {
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .float-img {
     width: 260px !important;
   }
@@ -571,5 +571,61 @@ export default {
   .float-img:hover {
     width: 260px !important;
   }
+} */
+
+ @media (max-width: 768px) {
+
+  /* Hero layout stays stacked */
+  .hero-section {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    min-height: auto;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin-bottom: 32px;
+    z-index: 3;
+  }
+
+  /* Screenshot container */
+  .hero-images {
+    width: 100%;
+    height: 420px;
+    position: relative;
+  }
+
+  /* Base image style */
+  .float-img {
+    width: 220px;
+    max-width: 80vw;
+    position: absolute;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    transform: rotate(var(--angle, 0deg));
+  }
+
+  /* ⬅️➡️ Zig-zag positioning */
+  .img1 {
+    top: 0;
+    left: 0;
+  }
+
+  .img2 {
+    top: 140px;
+    right: 0;
+  }
+
+  .img3 {
+    top: 280px;
+    left: 0;
+  }
+
+  /* Disable hover zoom on mobile */
+  .float-img:hover {
+    width: 220px;
+  }
 }
+
 </style>
