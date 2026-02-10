@@ -153,7 +153,8 @@ export default {
 </style> -->
 
 <template>
-  <div class="fab-container" @click="goToCalendly">
+  <div class="fab-container" @click="openBooking">
+  <!-- <div class="fab-container" @click="$emit('open-meeting')"> -->
     <img :src="bookDemoGif" alt="Book Demo" class="fab-gif" />
     <span class="fab-ribbon">Book a Demo</span>
   </div>
@@ -166,11 +167,21 @@ export default {
   data() {
     return { bookDemoGif };
   },
+  // methods: {
+  //   goToCalendly() {
+  //     window.open("https://calendly.com/your-org/demo", "_blank");
+  //   },
+  // },
+
   methods: {
-    goToCalendly() {
-      window.open("https://calendly.com/your-org/demo", "_blank");
+    openBooking() {
+      window.open(
+        "https://calendar.app.google/81BuaveR2dU9RX3a6",
+        "_blank",
+        "noopener,noreferrer"
+      );
     },
-  },
+  }
 };
 </script>
 
@@ -183,20 +194,18 @@ export default {
   z-index: 9999;
   cursor: pointer;
   height: 64px;
-  width: 64px; /* default width (just GIF) */
+  width: 64px;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* keep gif on left */
+  justify-content: flex-start;
   overflow: hidden;
   transition: width 0.5s ease;
 }
 
-/* Expand width on hover */
 .fab-container:hover {
-  width: 200px; /* enough space for ribbon */
+  width: 200px;
 }
 
-/* GIF only */
 .fab-gif {
   width: 64px;
   height: 64px;
@@ -206,7 +215,6 @@ export default {
   z-index: 2;
 }
 
-/* Ribbon positioned next to GIF */
 .fab-ribbon {
   margin-left: 10px;
   background: #1f3557;
@@ -221,14 +229,12 @@ export default {
   z-index: 1;
 }
 
-/* Hover effect */
 .fab-container:hover .fab-gif {
-  opacity: 0; /* fade out gif */
+  opacity: 0;
 }
 
 .fab-container:hover .fab-ribbon {
   opacity: 1;
-  transform: translateX(0); /* slide in */
+  transform: translateX(0);
 }
 </style>
-
