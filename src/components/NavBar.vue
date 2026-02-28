@@ -54,7 +54,7 @@ export default {
         <v-col cols="auto">
           <router-link to="/">
             <v-img
-              src="@/assets/PRIVAULT.svg"
+              src="@/assets/PRIVAULT_BG.png"
               class="logo"
               height="200"
               width="200"
